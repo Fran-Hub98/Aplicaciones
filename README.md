@@ -1,2 +1,0 @@
-# Aplicaciones
-prueba de apliaciones 
