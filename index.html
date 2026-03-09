@@ -1,1 +1,28 @@
-<h1>Github pages</h1>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mi Web Vulnerable</title>
+</head>
+<body>
+    <h1>Gestión de Ayuntamientos</h1>
+    
+    <!-- Vulnerabilidad 1: Formulario sin protección CSRF -->
+    <form action="guardar_usuario.php" method="POST">
+        <input type="text" name="nombre" placeholder="Nombre">
+        <input type="password" name="password" placeholder="Contraseña">
+        <input type="submit" value="Registrar">
+    </form>
+    
+    <!-- Vulnerabilidad 2: Enlace con parámetro en URL propenso a XSS -->
+    <a href="buscar.php?q=<script>alert('XSS')</script>">Buscar</a>
+    
+    <!-- Vulnerabilidad 3: Versión de librería conocida como insegura -->
+    <script src="jquery-1.7.2.min.js"></script>
+    
+    <?php
+    // Vulnerabilidad 4: Consulta SQL sin parámetros
+    $id = $_GET['id'];
+    $query = "SELECT * FROM usuarios WHERE id = $id";
+    ?>
+</body>
+</html>
